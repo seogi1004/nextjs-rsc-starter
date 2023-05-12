@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Suspense } from 'react'
-import Table from '@/components/table'
+import ServerTable from '@/components/server-table'
+import ClientTable from '@/components/client-table'
 import TablePlaceholder from '@/components/table-placeholder'
 import ExpandingArrow from '@/components/expanding-arrow'
 
@@ -22,10 +23,15 @@ export default function Home() {
       <h1 className="pt-4 pb-8 bg-gradient-to-br from-black via-[#171717] to-[#575757] bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
         Postgres on Vercel
       </h1>
+
       <Suspense fallback={<TablePlaceholder />}>
         {/* @ts-expect-error Async Server Component */}
-        <Table />
+        <ServerTable />
       </Suspense>
+      {/*  <Suspense fallback={<TablePlaceholder />}>*/}
+      {/*      <ClientTable />*/}
+      {/*  </Suspense>*/}
+
       <p className="font-light text-gray-600 w-full max-w-lg text-center mt-6">
         <Link
           href="https://vercel.com/postgres"
