@@ -20,16 +20,16 @@ export default function Home() {
         <p>Deploy your own to Vercel</p>
         <ExpandingArrow />
       </Link>
-      <h1 className="pt-4 pb-8 bg-gradient-to-br from-black via-[#171717] to-[#575757] bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
-        Postgres on Vercel
+      <h1 className="pt-4 pb-8 bg-gradient-to-br from-black via-[#171717] to-[#575757] bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-5xl">
+        Postgres on Vercel (+Redis)
       </h1>
 
-      <h3 className="mb-2">1. Client Component</h3>
+      <h3 className="mb-2 font-medium">1. Client Component</h3>
       <Suspense fallback={<TablePlaceholder />}>
         <ClientTable />
       </Suspense>
       <br />
-      <h3 className="mb-2">2. Server Component</h3>
+      <h3 className="mb-2 font-medium">2. Server Component</h3>
       <Suspense fallback={<TablePlaceholder />}>
         {/* @ts-expect-error Async Server Component */}
         <ServerTable />
