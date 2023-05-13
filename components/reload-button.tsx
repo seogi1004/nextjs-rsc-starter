@@ -3,7 +3,7 @@
 import React from 'react';
 import { ErrorBoundary } from '@highlight-run/react';
 
-interface Props {
+export interface Props {
     onClick: React.MouseEventHandler<HTMLButtonElement>;
     loading: boolean;
 }

@@ -1,12 +1,12 @@
 'use client'
 
+import type { User } from '@/lib/service';
 import { useState, useEffect } from 'react';
-import { timeAgo } from '@/lib/utils'
-import Image from 'next/image'
 import ReloadButton from './reload-button'
+import TableRow from "@/components/table-row";
 
 export default function ClientTable() {
-  const [users, setUsers] = useState<any[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
   const [duration, setDuration] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -38,26 +38,8 @@ export default function ClientTable() {
         <ReloadButton onClick={loadData} loading={loading} />
       </div>
       <div className="divide-y divide-gray-900/5">
-        {users.map((user) => (
-          <div
-            key={user.name}
-            className="flex items-center justify-between py-3"
-          >
-            <div className="flex items-center space-x-4">
-              <Image
-                src={user.image}
-                alt={user.name}
-                width={48}
-                height={48}
-                className="rounded-full ring-1 ring-gray-900/5"
-              />
-              <div className="space-y-1">
-                <p className="font-medium leading-none">{user.name}</p>
-                <p className="text-sm text-gray-500">{user.email}</p>
-              </div>
-            </div>
-            <p className="text-sm text-gray-500">{timeAgo(user.createdAt)}</p>
-          </div>
+        {users.map((user, index) => (
+            <TableRow key={index} user={user}></TableRow>
         ))}
       </div>
     </div>

@@ -1,32 +1,10 @@
-import kv from '@vercel/kv';
-import { sql } from '@vercel/postgres'
-import { timeAgo } from '@/lib/utils'
-import Image from 'next/image'
+import { fetchUsers } from '@/lib/service';
 import RefreshButton from './refresh-button'
+import TableRow from './table-row';
 
 export default async function ServerTable() {
-  let users: any = [];
-  let startTime = Date.now()
-
-  try {
-    const cachedData = await kv.get<any[]>('users');
-    if (cachedData === null) {
-      const data = await sql`SELECT * FROM users`;
-      users = data.rows;
-      await kv.set('users', JSON.stringify(data.rows), { ex: 10, nx: true })
-      console.log("rsc no cache!");
-    } else {
-      users = cachedData;
-      console.log("rsc cached!")
-    }
-  } catch (e: any) {
-    if (e.message === `relation "users" does not exist`) {
-      // TODO
-    } else {
-      throw e
-    }
-  }
-
+  const startTime = Date.now()
+  const users = await fetchUsers('server');
   const duration = Date.now() - startTime
 
   return (
@@ -41,26 +19,8 @@ export default async function ServerTable() {
         <RefreshButton />
       </div>
       <div className="divide-y divide-gray-900/5">
-        {users.map((user: any) => (
-          <div
-            key={user.name}
-            className="flex items-center justify-between py-3"
-          >
-            <div className="flex items-center space-x-4">
-              <Image
-                src={user.image}
-                alt={user.name}
-                width={48}
-                height={48}
-                className="rounded-full ring-1 ring-gray-900/5"
-              />
-              <div className="space-y-1">
-                <p className="font-medium leading-none">{user.name}</p>
-                <p className="text-sm text-gray-500">{user.email}</p>
-              </div>
-            </div>
-            <p className="text-sm text-gray-500">{timeAgo(user.createdAt)}</p>
-          </div>
+        {users.map((user, index) => (
+          <TableRow key={index} user={user}></TableRow>
         ))}
       </div>
     </div>
