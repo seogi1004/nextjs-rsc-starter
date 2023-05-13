@@ -9,7 +9,7 @@ export interface User {
     createdAt: Date;
 }
 
-export async function fetchUsers(cacheKey: string) {
+export async function getUsers(cacheKey: string) {
     const cachedData = await kv.get<User[]>(`users-${cacheKey}`);
     if (cachedData === null) {
         const data = await sql<User>`SELECT * FROM users`;

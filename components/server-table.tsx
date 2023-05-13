@@ -1,10 +1,10 @@
-import { fetchUsers } from '@/lib/service';
+import { getUsers } from '@/lib/service';
 import RefreshButton from './refresh-button'
 import TableRow from './table-row';
 
 export default async function ServerTable() {
   const startTime = Date.now()
-  const users = await fetchUsers('server');
+  const users = await getUsers('server');
   const duration = Date.now() - startTime
 
   return (
