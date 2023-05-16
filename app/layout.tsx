@@ -1,5 +1,4 @@
 import './globals.css'
-import Highlight from './highlight'
 import { Inter } from 'next/font/google'
 
 export const metadata = {
@@ -22,7 +21,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.variable}>
-        <Highlight />
         {children}
       </body>
     </html>

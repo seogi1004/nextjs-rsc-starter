@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react';
-import { ErrorBoundary } from '@highlight-run/react';
 
 export interface Props {
     onClick: React.MouseEventHandler<HTMLButtonElement>;
@@ -10,7 +9,6 @@ export interface Props {
 
 export default function RefreshButton({ onClick, loading }: Props) {
   return (
-    <ErrorBoundary>
       <button
           className={`${
               loading ? 'cursor-not-allowed text-gray-400' : ''
@@ -19,6 +17,5 @@ export default function RefreshButton({ onClick, loading }: Props) {
       >
           {loading ? 'Refreshing...' : 'Refresh'}
       </button>
-    </ErrorBoundary>
   )
 }
