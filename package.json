@@ -1,8 +1,8 @@
 {
-  "name": "postgres-starter",
-  "repository": "https://github.com/vercel/examples.git",
+  "name": "nextjs-rsc-starter",
+  "repository": "https://github.com/seogi1004/nextjs-rsc-starter",
   "license": "MIT",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
