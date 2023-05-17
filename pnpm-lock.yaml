@@ -1,9 +1,6 @@
 lockfileVersion: '6.0'
 
 dependencies:
-  '@highlight-run/react':
-    specifier: ^3.2.0
-    version: 3.2.0(react-dom@18.2.0)(react@18.2.0)
   '@types/node':
     specifier: 18.15.11
     version: 18.15.11
@@ -28,9 +25,6 @@ dependencies:
   eslint-config-next:
     specifier: 13.3.0
     version: 13.3.0(eslint@8.38.0)(typescript@5.0.4)
-  highlight.run:
-    specifier: ^6.2.0
-    version: 6.2.0
   ms:
     specifier: ^2.1.3
     version: 2.1.3
@@ -105,16 +99,6 @@ packages:
   /@eslint/js@8.38.0:
     resolution: {integrity: sha512-IoD2MfUnOV58ghIHCiil01PcohxjbYR/qCxsoC+xNgUwh1EY8jOOrYmu3d3a71+tJJ23uscEV4X2HJWMsPJu4g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    dev: false
-
-  /@highlight-run/react@3.2.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-9W7kcGJIFz0AHglMW2nFkHmINuLwjlA4TQJ9yqkJ96tcmBWWFK0uJgqmyuGl6u+9p32tL/8WkxKNreHfVO7JIQ==}
-    peerDependencies:
-      react: '>=16'
-      react-dom: '>=16'
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /@humanwhocodes/config-array@0.11.8:
@@ -1469,10 +1453,6 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
-    dev: false
-
-  /highlight.run@6.2.0:
-    resolution: {integrity: sha512-wiqWiN4kt5e4EEiCh17BMknSAOiAoULutKZcV2NupGTe0p/Ll+rRGStABvsYMLsR3n5Rln4AulVLF72AkQC+MA==}
     dev: false
 
   /ignore@5.2.4:
